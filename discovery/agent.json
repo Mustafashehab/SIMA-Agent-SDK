@@ -1,0 +1,63 @@
+{
+  "name": "SIMA",
+  "version": "1.0.0-public-export",
+  "description": "Wallet-first digital asset protection infrastructure for humans, AI agents, trading bots, wallet assistants, automation platforms, portfolio systems, and machine-to-machine systems.",
+  "website": "https://sima-prime.com",
+  "contact": {
+    "url": "https://sima-prime.com",
+    "label": "SIMA"
+  },
+  "identity": {
+    "model": "wallet-first",
+    "statement": "Wallet identity is primary. Human users and AI/bot operators can use the same wallet-first model."
+  },
+  "machineAccess": {
+    "machineToMachineAccess": true,
+    "apiFirst": true,
+    "browserExtensionRequired": false,
+    "humanUiRequired": false
+  },
+  "economics": {
+    "premiumPercentOfInvestedAmount": 5,
+    "coveragePercentOfInvestedAmount": 50,
+    "deductiblePercentOfInvestedAmount": 10,
+    "maximumNetPaymentPercentOfInvestedAmount": 40,
+    "maximumNetPaymentFormula": "coverageAmount - deductibleAmount"
+  },
+  "claimOutcomes": ["FULL_PAYMENT", "NO_PAYMENT"],
+  "protectionModel": {
+    "availability": "broad",
+    "preIssuanceAssetApproval": false,
+    "statement": "SIMA does not approve, score, audit, endorse, certify, or validate assets before protection issuance. Claim eligibility and payout decisions are evaluated later if a claim is submitted."
+  },
+  "discoveryUrls": {
+    "llms": "https://sima-prime.com/llms.txt",
+    "openapi": "https://sima-prime.com/openapi.json",
+    "developers": "https://sima-prime.com/developers",
+    "publicDevelopers": "https://sima-prime.com/developers/public",
+    "ai": "https://sima-prime.com/ai",
+    "aiExamples": "https://sima-prime.com/ai/examples",
+    "aiDemo": "https://sima-prime.com/ai/demo"
+  },
+  "publicRepository": {
+    "url": "https://github.com/Mustafashehab/SIMA-Agent-SDK",
+    "publicAssets": ["SDK", "examples", "documentation", "discovery assets"],
+    "privateAssetsExcluded": [
+      "production systems",
+      "treasury internals",
+      "claims internals",
+      "investigation internals",
+      "infrastructure details",
+      "migrations",
+      "secrets",
+      "wallet addresses"
+    ]
+  },
+  "safetyBoundaries": {
+    "privateKeyRequired": false,
+    "blockchainTransferExecution": false,
+    "automaticCoverageActivation": false,
+    "automaticClaimApproval": false,
+    "automaticPayout": false
+  }
+}

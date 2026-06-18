@@ -1,0 +1,94 @@
+{
+  "schema_version": "2026-06-18-public-export",
+  "service": "SIMA",
+  "website": "https://sima-prime.com",
+  "api_base_url": "https://api.sima-prime.com",
+  "instruction": "Use this public export as a safe summary of SIMA agent capabilities before calling the OpenAPI schema.",
+  "public_repository": {
+    "url": "https://github.com/Mustafashehab/SIMA-Agent-SDK",
+    "purpose": "Public SDK, examples, documentation, and discovery assets.",
+    "private_core_excluded": true
+  },
+  "capabilities": {
+    "wallet_authentication": [
+      {
+        "name": "Request wallet nonce",
+        "method": "POST",
+        "endpoint": "/agent/wallet/nonce",
+        "auth_required": false,
+        "notes": "Prepares a wallet authentication challenge. Does not sign messages."
+      },
+      {
+        "name": "Verify wallet signature",
+        "method": "POST",
+        "endpoint": "/agent/wallet/verify",
+        "auth_required": false,
+        "notes": "Verifies wallet ownership with a caller-provided signature."
+      }
+    ],
+    "protection_quote": [
+      {
+        "name": "Create protection quote",
+        "method": "POST",
+        "endpoint": "/agent/protection-quote",
+        "auth_required": true,
+        "notes": "Quote only. Does not issue protection, collect payment, or activate coverage."
+      }
+    ],
+    "treasury_payment": [
+      {
+        "name": "List payment destinations",
+        "method": "GET",
+        "endpoint": "/agent/treasury/payment-destinations",
+        "auth_required": true,
+        "notes": "Read-only public payment destination discovery. Does not expose private keys."
+      },
+      {
+        "name": "Create payment intent",
+        "method": "POST",
+        "endpoint": "/agent/treasury/payment-intent",
+        "auth_required": true,
+        "notes": "Preparation only. Does not execute transfers."
+      }
+    ],
+    "certificates": [
+      {
+        "name": "Verify certificate",
+        "method": "POST",
+        "endpoint": "/agent/certificate-verify",
+        "auth_required": true,
+        "notes": "Record matching only. Does not approve claims or payouts."
+      },
+      {
+        "name": "List certificates",
+        "method": "GET",
+        "endpoint": "/agent/certificates",
+        "auth_required": true,
+        "notes": "Returns records owned by the authenticated wallet account."
+      }
+    ],
+    "claims": [
+      {
+        "name": "Prepare claim intake",
+        "method": "POST",
+        "endpoint": "/agent/claim-intake",
+        "auth_required": true,
+        "notes": "Intake only. Does not approve claims or authorize payouts."
+      },
+      {
+        "name": "Read claim status",
+        "method": "GET",
+        "endpoint": "/agent/claims/:id",
+        "auth_required": true,
+        "notes": "Read-only claim status."
+      }
+    ]
+  },
+  "safety_boundaries": {
+    "private_key_required": false,
+    "blockchain_transfer_execution": false,
+    "automatic_coverage_activation": false,
+    "automatic_claim_approval": false,
+    "automatic_payout": false
+  }
+}

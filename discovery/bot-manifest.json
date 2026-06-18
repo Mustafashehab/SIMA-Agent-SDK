@@ -1,0 +1,93 @@
+{
+  "schema_version": "2026-06-18-public-export",
+  "project": {
+    "name": "SIMA",
+    "website": "https://sima-prime.com",
+    "api_base_url": "https://api.sima-prime.com",
+    "description": "Wallet-first digital asset protection infrastructure with direct API access for AI agents, trading bots, autonomous wallets, wallet copilots, portfolio bots, and machine-to-machine systems."
+  },
+  "machine_access": {
+    "enabled": true,
+    "api_first": true,
+    "browser_extension_required": false,
+    "human_ui_required": false,
+    "wallet_auth_supported": true,
+    "private_key_required": false,
+    "statement": "For bots and AI agents, the API is the product."
+  },
+  "supported_agent_types": [
+    "AI agents",
+    "Trading bots",
+    "Autonomous wallets",
+    "Wallet copilots",
+    "Portfolio bots",
+    "Machine-to-machine systems"
+  ],
+  "capabilities": [
+    "wallet authentication",
+    "protection quote",
+    "treasury payment destination discovery",
+    "payment intent preparation",
+    "payment evidence submission for review",
+    "certificate verification",
+    "certificate portfolio",
+    "claim intake",
+    "claim status",
+    "TypeScript agent SDK"
+  ],
+  "endpoints": {
+    "wallet_authentication": [
+      "POST /agent/wallet/nonce",
+      "POST /agent/wallet/verify"
+    ],
+    "protection": [
+      "POST /agent/protection-quote"
+    ],
+    "treasury": [
+      "GET /agent/treasury/payment-destinations",
+      "POST /agent/treasury/payment-intent",
+      "POST /agent/treasury/payment-verify"
+    ],
+    "certificates": [
+      "POST /agent/certificate-verify",
+      "GET /agent/certificates",
+      "GET /agent/certificates/:id"
+    ],
+    "claims": [
+      "POST /agent/claim-intake",
+      "GET /agent/claims",
+      "GET /agent/claims/:id"
+    ]
+  },
+  "sdk": {
+    "typescript_package": "@sima/agent-sdk",
+    "public_repository": "https://github.com/Mustafashehab/SIMA-Agent-SDK",
+    "uses_native_fetch": true,
+    "runtime_dependencies": [],
+    "signs_wallet_messages": false,
+    "stores_private_keys": false
+  },
+  "examples": {
+    "basic_flow": "examples/basic-flow.ts",
+    "autonomous_demo_flow": "examples/autonomous-demo-flow.ts",
+    "public_examples_page": "https://sima-prime.com/ai/examples",
+    "public_demo_page": "https://sima-prime.com/ai/demo"
+  },
+  "sima_v1_economics": {
+    "premium_percent_of_invested_amount": 5,
+    "coverage_percent_of_invested_amount": 50,
+    "deductible_percent_of_invested_amount": 10,
+    "maximum_net_payment_percent_of_invested_amount": 40,
+    "claim_outcomes": ["FULL_PAYMENT", "NO_PAYMENT"]
+  },
+  "safety_boundaries": {
+    "private_key_required": false,
+    "seed_phrase_required": false,
+    "blockchain_transfer_execution": false,
+    "payment_execution": false,
+    "automatic_coverage_activation": false,
+    "automatic_claim_approval": false,
+    "automatic_payout": false,
+    "production_treasury_addresses_in_manifest": false
+  }
+}
